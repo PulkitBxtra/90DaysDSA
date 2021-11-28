@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+
+int occ(int arr[],int n,int i,int p){
+
+    if(i==n){
+        return -1;
+    }
+    
+    if(arr[i]==p){
+        return i;
+    }
+
+    return occ(arr,n,i+1,p);
+    
+    
+}
+
+
+int main(){
+    int n;
+    int p;
+    cin>>n;
+    int arr[n];
+
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+
+    int i=0;
+    cin>>p;
+   
+    cout<<occ(arr,n,i,p);
+}
