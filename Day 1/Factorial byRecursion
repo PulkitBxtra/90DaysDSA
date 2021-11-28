@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+void sum_digits(int n,int ans){
+
+
+    if(n==0){
+        cout<<ans<<endl;
+        return;
+    }
+
+    int remainder=n/10;
+    int last_digit=n%10;
+
+    //cout<<last_digit<<" "<<remainder<<endl;
+    ans+=last_digit;
+
+    sum_digits(remainder,ans);
+
+}
+
+
+int main(){
+   
+    int n;
+    cin>>n;
+    int ans=0;
+
+    sum_digits(n,ans);
+}
