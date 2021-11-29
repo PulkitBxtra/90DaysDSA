@@ -1,0 +1,31 @@
+#include<iostream>
+#include<climits>
+using namespace std;
+
+string dupe(string s){
+
+    if(s.size()==0){
+        return "";
+    }
+
+    char ch=s[0];
+    
+    string ans=dupe(s.substr(1));
+
+    if(s[0]=='x'){
+        return ans +  ch;
+    }
+
+    else{
+        return ch+ans;
+    }
+
+
+
+}
+
+
+int main(){
+    string s="zcxxcxxzxzx";
+    cout<<dupe(s);
+}
