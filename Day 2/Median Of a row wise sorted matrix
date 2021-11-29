@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int n;
+    int m;
+
+    cin>>n>>m;
+    int arr[n][m];
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cin>>arr[i][j];
+        }
+    }
+    
+    int s=n*m;
+    int srr[s];
+    int k=0;
+   
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            srr[k]=arr[i][j];
+            k++;
+        }
+    }
+    sort(srr,srr+s);
+    // int sum=0;
+    // for(int i=0;i<s;i++){
+    //     sum += srr[i];
+    // }
+
+    cout<<srr[s/2]<<endl;
+
+
+}
