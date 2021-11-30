@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+
+void dupe(int n){
+
+    if(n<=0){
+        cout<<n<<" ";
+        return;
+    }
+    
+    cout<<n<<" ";
+    dupe(n-5);
+    cout<<n<<" ";
+
+    
+
+}
+
+
+int main(){
+    int n;
+    cin>>n;
+
+    dupe(n);
+
+}
