@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int T,n;
+	cin>>T;
+	
+	for(int i=0;i<T;i++){
+	    
+	    cin>>n;
+	    bool zero=true;
+	    while(n>0){
+	        if(n%10==0 &&zero){
+	            n/=10;
+	            continue;
+	        }
+	        zero=false;
+	        cout<<n%10;
+	        n/=10;
+	    }
+	    
+	    cout<<endl;
+	    
+	}
+	
+	
+	
+	return 0;
+}
