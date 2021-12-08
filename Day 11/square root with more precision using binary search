@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+
+int sq(int n){
+    int s=0;
+    int e=n;
+    long long mid=(s+e)/2;
+    int ans=-1;
+    while(s<=e){
+
+        if(mid*mid==n){
+            return mid;
+        }
+
+        if(mid*mid<n){
+            ans=mid;
+            s=mid+1;
+        }
+
+        else{
+            e=mid-1;
+        }
+
+        mid=(s+e)/2;
+
+    }
+    return ans;
+
+}
+
+double morepressice(int n,int pres,int temp){
+
+    double factor =1;
+    double ans=temp;
+
+    for(int i=0;i<pres;i++){
+        factor =factor/10;
+    
+        for(double j=ans;j*j<n;j=j+factor){
+            ans=j;
+        }
+    
+    }
+    return ans;
+
+}
+
+
+int main(){
+    int n;
+    cin>>n;
+
+    int temp=sq(n);
+
+    cout<<morepressice(n,3,temp)<<endl;
+
+}
