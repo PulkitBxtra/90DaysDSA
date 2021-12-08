@@ -34,4 +34,5 @@ int main(){
     cin>>n;
 
     cout<<sq(n)<<endl;
+return 0;
 }
