@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+
+void toh(int n,char start,char helper,char dest){
+
+    if(n==0){
+        return;
+    }
+
+    toh(n-1,start,dest,helper);
+    cout<<"move from "<<start<<" to "<<dest<<endl;
+    toh(n-1,helper,start,dest);
+
+}
+
+int main(){
+    int n;
+    cin>>n;
+
+    toh(n,'A','B','C');
+
+
+}
