@@ -70,6 +70,4 @@ int main(){
             cout<<endl;
         }
     }
-
- 
 }
