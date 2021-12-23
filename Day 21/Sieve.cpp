@@ -9,3 +9,4 @@ int countOccurences(int arr[], int n, int X)
     }
     return counter;
 }
+
