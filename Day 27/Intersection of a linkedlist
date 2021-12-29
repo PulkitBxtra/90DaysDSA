@@ -1,0 +1,168 @@
+#include<iostream>
+using namespace std;
+
+class node{
+    public:
+    int data;
+    node* next;
+    node* prev;
+
+    node(int val){
+        data=val;
+        next=NULL;
+        prev=NULL;
+    }
+};
+
+
+void InsertHead(node* &head,int val){
+
+    node* n=new node(val);
+    n->next=head;
+    
+    if(head!=NULL){
+        head->prev=n;
+    }
+    
+    head=n;
+}
+
+void InsertTail(node* &head,int val){
+    node* n=new node(val);
+
+    if(head==NULL){
+        head=n;
+        return;
+    }
+
+    node* temp=head;
+
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+
+    temp->next=n;
+}
+
+
+void Print(node* head){
+    
+    node* temp=head;
+
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+    cout<<endl;
+
+}
+
+node* last(node* &head){
+    node* temp=head;
+
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+    return temp;
+}
+
+int length(node* &head){
+    node* temp=head;
+    int count=0;
+
+    while(temp->next!=NULL){
+        temp=temp->next;
+        count++;
+    }
+
+    return count;
+}
+
+void intersect(node* &head,node* &head2,int pos){
+
+    node* temp=head;
+    pos--;
+   
+    while(pos--){
+        temp=temp->next;
+    }
+   
+    node* temp2=head2;
+
+    while(temp2->next!=NULL){
+        temp2=temp2->next;
+    }
+   
+    temp2->next=temp;
+
+}
+
+int Intersection(node* &head,node* &head2){
+
+    int len1=length(head);
+    int len2=length(head2);
+    int diff;
+    node* temp=head;
+    node* temp2=head2;
+    
+    if(len1<len2){
+        diff=len2-len1;
+        temp=head2;
+        temp2=head;     
+    }
+
+    if(len1>len2){
+        diff=len1-len2;
+        temp2=head2;
+        temp=head;     
+    }
+    
+    int count=1;
+
+    while(temp!=NULL && count<=diff){
+        temp=temp->next;
+        count++;
+    }
+
+    while(temp->next!=NULL){
+        if(temp->data==temp2->data){
+            return temp->data;
+        } 
+        temp=temp->next;
+        temp2=temp2->next;
+    }
+
+    return -1;
+
+}
+
+
+int main(){
+    node* head=NULL;
+    node* head2=NULL;
+
+    InsertTail(head,1);
+    InsertTail(head,2);
+    InsertTail(head,18);
+    InsertTail(head,4);
+    InsertTail(head,5);
+    InsertTail(head,6);
+    
+    
+    InsertTail(head2,9);
+    InsertTail(head2,10);
+    InsertTail(head2,11);
+    InsertTail(head2,15);
+    InsertTail(head2,14);
+    InsertTail(head2,13);
+
+
+    intersect(head,head2,3);
+    
+    Print(head);
+    Print(head2);
+
+    cout<<Intersection(head,head2)<<endl;
+
+ return 0;
+}
