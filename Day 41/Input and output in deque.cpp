@@ -23,5 +23,7 @@ int main(){
         cout<<i<<" ";
     }
     cout<<endl;
+    
+    cout<<dq.size()<<endl;
 
 }
